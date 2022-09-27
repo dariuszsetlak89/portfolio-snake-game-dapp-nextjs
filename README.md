@@ -1,2 +1,1 @@
-# portfolio-snake-game-nextjs
-My portfolio project: Snake Game Dapp - Next.js frontend
+# My portfolio project: Snake Game Dapp - next.js frontend
