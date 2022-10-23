@@ -50,3 +50,23 @@ export default function Home() {
         </div>
     );
 }
+
+
+<div className="mx-8 mt-12 p-3 w-48 flex justify-center bg-lime-300">
+            <div className={language === "pl" ? " border-lime-500 border-2" : ""}>
+                <div className="px-1 pt-1 flex-none">
+                    <Image src="/flags/polish-flag.png" alt="Polish flag" width={64} height={64} />
+                </div>
+            </div>
+
+            <div className={language === "en" ? " border-lime-500 border-2" : ""}>
+                <div className="px-1 pt-1 flex-none">
+                    <Image
+                        src="/flags/british-flag.png"
+                        alt="British flag"
+                        width={64}
+                        height={64}
+                    />
+                </div>
+            </div>
+        </div>

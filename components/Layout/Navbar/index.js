@@ -1,17 +1,28 @@
-import { Button, Checkbox } from "@web3uikit/core";
+import { Button } from "@web3uikit/core";
 import Link from "next/link";
-import Image from "next/image";
+import { useTranslation } from "next-i18next";
+import LangSwitcher from "./LangSwitcher";
 
-export default function Navbar() {
+export default function Navbar({
+    homeButton,
+    howToPlayButton,
+    playerPanelButton,
+    playGameButton,
+    awardButton,
+    highScoresButton,
+    contactButton,
+}) {
+    const { t } = useTranslation(["common", "layout"]);
+
     return (
-        <nav className="mt-12 p-5">
-            <div className="p-4">
+        <nav>
+            <div className="p-4 w-64">
                 <Link href="/">
                     <a>
                         <Button
                             color="green"
                             onClick={function noRefCheck() {}}
-                            text="HOME"
+                            text={homeButton}
                             theme="colored"
                             size="xl"
                             isFullWidth
@@ -19,13 +30,27 @@ export default function Navbar() {
                     </a>
                 </Link>
             </div>
-            <div className="p-4">
+            <div className="p-4 w-64">
+                <Link href="/howtoplay">
+                    <a>
+                        <Button
+                            color="green"
+                            onClick={function noRefCheck() {}}
+                            text={howToPlayButton}
+                            theme="colored"
+                            size="xl"
+                            isFullWidth
+                        />
+                    </a>
+                </Link>
+            </div>
+            <div className="p-4 w-64">
                 <Link href="/player">
                     <a>
                         <Button
                             color="green"
                             onClick={function noRefCheck() {}}
-                            text="PLAYER"
+                            text={playerPanelButton}
                             theme="colored"
                             size="xl"
                             isFullWidth
@@ -33,13 +58,13 @@ export default function Navbar() {
                     </a>
                 </Link>
             </div>
-            <div className="p-4">
+            <div className="p-4 w-64">
                 <Link href="/game">
                     <a>
                         <Button
                             color="green"
                             onClick={function noRefCheck() {}}
-                            text="GAME"
+                            text={playGameButton}
                             theme="colored"
                             size="xl"
                             isFullWidth
@@ -47,13 +72,13 @@ export default function Navbar() {
                     </a>
                 </Link>
             </div>
-            <div className="p-4">
+            <div className="p-4 w-64">
                 <Link href="/awards">
                     <a>
                         <Button
                             color="green"
                             onClick={function noRefCheck() {}}
-                            text="AWARDS"
+                            text={awardButton}
                             theme="colored"
                             size="xl"
                             isFullWidth
@@ -61,13 +86,13 @@ export default function Navbar() {
                     </a>
                 </Link>
             </div>
-            <div className="p-4">
+            <div className="p-4 w-64">
                 <Link href="/highscores">
                     <a>
                         <Button
                             color="green"
                             onClick={function noRefCheck() {}}
-                            text="HIGH SCORES"
+                            text={highScoresButton}
                             theme="colored"
                             size="xl"
                             isFullWidth
@@ -75,13 +100,13 @@ export default function Navbar() {
                     </a>
                 </Link>
             </div>
-            <div className="p-4">
+            <div className="p-4 w-64">
                 <Link href="/contact">
                     <a>
                         <Button
                             color="green"
                             onClick={function noRefCheck() {}}
-                            text="CONTACT"
+                            text={contactButton}
                             theme="colored"
                             size="xl"
                             isFullWidth
@@ -89,21 +114,7 @@ export default function Navbar() {
                     </a>
                 </Link>
             </div>
-            <div className="mx-4 mt-12 p-3 flex justify-center bg-lime-300">
-                <Image src="/flags/polish-flag.png" alt="Polish flag" width={32} height={32} />
-                <div className="px-2 flex content-center">
-                    <Checkbox
-                        checked
-                        id="test-switch"
-                        label=""
-                        layout="switch"
-                        name="Test switch input"
-                        onBlur={function noRefCheck() {}}
-                        onChange={function noRefCheck() {}}
-                    />
-                </div>
-                <Image src="/flags/british-flag.png" alt="British flag" width={32} height={32} />
-            </div>
+            <LangSwitcher />
         </nav>
     );
 }

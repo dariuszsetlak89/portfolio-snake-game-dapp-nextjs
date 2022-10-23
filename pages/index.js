@@ -1,7 +1,18 @@
 import Head from "next/head";
-import Navbar from "../components/Layout/Navbar";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
 
-export default function Home() {
+export async function getStaticProps({ locale }) {
+    return {
+        props: {
+            ...(await serverSideTranslations(locale, ["common", "home"])),
+        },
+    };
+}
+
+export default function Home(props) {
+    const { t } = useTranslation();
+
     return (
         <div>
             <Head>
@@ -14,7 +25,9 @@ export default function Home() {
                 <link rel="icon" href="/snake-icon.ico" />
             </Head>
             <div>
-                <h1 className="text-5xl font-bold text-lime-600 text-center pr-10 pt-5">HOME</h1>
+                <h1 className="text-5xl font-bold text-lime-600 text-center m-auto">
+                    {t("home:title")}
+                </h1>
             </div>
         </div>
     );

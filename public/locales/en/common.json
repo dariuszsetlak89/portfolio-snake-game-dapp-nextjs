@@ -1,0 +1,17 @@
+{
+    "header": {
+        "connected": "Connected!",
+        "please-connect": "Please connect to a Wallet",
+        "not-supported-chain": "Not supported chain!",
+        "supported-chains": "Supported chains id:"
+    },
+    "navbar": {
+        "home-button": "HOME",
+        "how-to-play-button": "HOW TO PLAY",
+        "player-panel-button": "PLAYER PANEL",
+        "play-game-button": "PLAY GAME",
+        "awards-button": "NFT AWARDS",
+        "high-scores-button": "HIGH SCORES",
+        "contact-button": "CONTACT"
+    }
+}
