@@ -17,17 +17,10 @@ export default function Home(props) {
         <div>
             <Head>
                 <title>Snake Game Dapp | Home</title>
-                <meta
-                    name="description"
-                    content="The classic Snake Game with modern Web3 blockchain functionalities.
-                    Score game points to gain FRUIT tokens and unique, cute Super Pet NFT!"
-                />
                 <link rel="icon" href="/snake-icon.ico" />
             </Head>
             <div>
-                <h1 className="text-5xl font-bold text-lime-600 text-center m-auto">
-                    {t("home:title")}
-                </h1>
+                <h1 className="pageTitle">{t("home:title")}</h1>
             </div>
         </div>
     );

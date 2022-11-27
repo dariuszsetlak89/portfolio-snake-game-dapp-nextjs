@@ -5,9 +5,11 @@
         "not-supported-chain": "Not supported chain!",
         "supported-chains": "Supported chains id:"
     },
-    "navbar": {
+    "topNavbar": {
+        "how-to-play-button": "HOW TO PLAY"
+    },
+    "sideNavbar": {
         "home-button": "HOME",
-        "how-to-play-button": "HOW TO PLAY",
         "player-panel-button": "PLAYER PANEL",
         "play-game-button": "PLAY GAME",
         "awards-button": "NFT AWARDS",

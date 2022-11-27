@@ -1,17 +1,8 @@
 import { Button } from "@web3uikit/core";
-import Link from "next/link";
 import { useTranslation } from "next-i18next";
-import LangSwitcher from "./LangSwitcher";
+import Link from "next/link";
 
-export default function Navbar({
-    homeButton,
-    howToPlayButton,
-    playerPanelButton,
-    playGameButton,
-    awardButton,
-    highScoresButton,
-    contactButton,
-}) {
+export default function SideNavbar({ sideNavbarTranslations }) {
     const { t } = useTranslation(["common", "layout"]);
 
     return (
@@ -22,21 +13,7 @@ export default function Navbar({
                         <Button
                             color="green"
                             onClick={function noRefCheck() {}}
-                            text={homeButton}
-                            theme="colored"
-                            size="xl"
-                            isFullWidth
-                        />
-                    </a>
-                </Link>
-            </div>
-            <div className="p-4 w-64">
-                <Link href="/howtoplay">
-                    <a>
-                        <Button
-                            color="green"
-                            onClick={function noRefCheck() {}}
-                            text={howToPlayButton}
+                            text={sideNavbarTranslations.homeButton}
                             theme="colored"
                             size="xl"
                             isFullWidth
@@ -50,7 +27,7 @@ export default function Navbar({
                         <Button
                             color="green"
                             onClick={function noRefCheck() {}}
-                            text={playerPanelButton}
+                            text={sideNavbarTranslations.playerPanelButton}
                             theme="colored"
                             size="xl"
                             isFullWidth
@@ -64,7 +41,7 @@ export default function Navbar({
                         <Button
                             color="green"
                             onClick={function noRefCheck() {}}
-                            text={playGameButton}
+                            text={sideNavbarTranslations.playGameButton}
                             theme="colored"
                             size="xl"
                             isFullWidth
@@ -78,7 +55,7 @@ export default function Navbar({
                         <Button
                             color="green"
                             onClick={function noRefCheck() {}}
-                            text={awardButton}
+                            text={sideNavbarTranslations.awardButton}
                             theme="colored"
                             size="xl"
                             isFullWidth
@@ -92,7 +69,7 @@ export default function Navbar({
                         <Button
                             color="green"
                             onClick={function noRefCheck() {}}
-                            text={highScoresButton}
+                            text={sideNavbarTranslations.highScoresButton}
                             theme="colored"
                             size="xl"
                             isFullWidth
@@ -106,7 +83,7 @@ export default function Navbar({
                         <Button
                             color="green"
                             onClick={function noRefCheck() {}}
-                            text={contactButton}
+                            text={sideNavbarTranslations.contactButton}
                             theme="colored"
                             size="xl"
                             isFullWidth
@@ -114,7 +91,6 @@ export default function Navbar({
                     </a>
                 </Link>
             </div>
-            <LangSwitcher />
         </nav>
     );
 }

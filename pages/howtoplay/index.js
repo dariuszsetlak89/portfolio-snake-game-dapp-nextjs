@@ -25,25 +25,18 @@ export default function Home(props) {
                 <link rel="icon" href="/snake-icon.ico" />
             </Head>
             <div>
-                <h1 className="text-5xl font-bold text-lime-600 text-center pr-10 pt-5">
-                    {t("howtoplay:title")}
-                </h1>
+                <h1 className="pageTitle">{t("howtoplay:title")}</h1>
                 <div className="p-10 text-2xl font-mono">
                     <p className="font-bold text-3xl">Jak grać?</p>
                     <p>1. Jeśli jesteś nowym graczem, odbierz darmowy airdrop tokenów SNAKE.</p>
                     <p>2. Kup kredyty za tokeny SNAKE, aby zagrać w grę.</p>
                     <p>3. Zagraj w grę Snake, płacąc za grę odpowiednią ilością kredytów.</p>
-                    <p>
-                        4. Podczas gry zbierz jak najwięcej owoców, za które otrzymasz tokeny FRUIT.
-                    </p>
+                    <p>4. Podczas gry zbierz jak najwięcej owoców, za które otrzymasz tokeny FRUIT.</p>
                     <p>5. Zbierz minimum 100 owoców podczas jednej gry i odbierz Snake NFT.</p>
+                    <p>6. Zbierz kolekcję 10 Snake NFTs i wymień je na unikalny token Super Pet NFT.</p>
                     <p>
-                        6. Zbierz kolekcję 10 Snake NFTs i wymień je na unikalny token Super Pet
-                        NFT.
-                    </p>
-                    <p>
-                        7. Rywalizuj z innymi graczami, aby zdobyć jak najwyższy wynik i zapisać się
-                        w tablicy najlepszych wyników.
+                        7. Rywalizuj z innymi graczami, aby zdobyć jak najwyższy wynik i zapisać się w tablicy
+                        najlepszych wyników.
                     </p>
                 </div>
             </div>

@@ -20,9 +20,7 @@ export default function HighScores() {
                 <link rel="icon" href="/snake-icon.ico" />
             </Head>
             <div>
-                <h1 className="text-5xl font-bold text-lime-600 text-center pr-10 pt-5">
-                    {t("highscores:title")}
-                </h1>
+                <h1 className="pageTitle">{t("highscores:title")}</h1>
             </div>
         </div>
     );

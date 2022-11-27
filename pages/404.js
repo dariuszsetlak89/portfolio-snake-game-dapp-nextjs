@@ -27,7 +27,8 @@ export default function NotFound() {
     return (
         <div>
             <Head>
-                <title>Error 404</title>
+                <title>Snake Game Dapp | Error 404</title>
+                <meta name="description" content="Snake Game Dapp - Error 404" />
                 <link rel="icon" href="/snake-icon.ico" />
             </Head>
             <div className="pt-24 text-center text-lime-600">

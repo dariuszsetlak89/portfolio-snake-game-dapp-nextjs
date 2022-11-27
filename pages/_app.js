@@ -3,6 +3,7 @@ import { NotificationProvider } from "@web3uikit/core";
 import { appWithTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
+import Head from "next/head";
 import Layout from "../components/Layout";
 import "../styles/globals.css";
 
@@ -16,22 +17,34 @@ export async function getStaticProps({ locale }) {
 
 function SnakeGameDapp({ Component, pageProps }) {
     const { t } = useTranslation("common");
+
+    const commonTranslations = {
+        connected: t("header.connected"),
+        pleaseConnect: t("header.please-connect"),
+        notSupportedChain: t("header.not-supported-chain"),
+        supportedChains: t("header.supported-chains"),
+        howToPlayButton: t("topNavbar.how-to-play-button"),
+        homeButton: t("sideNavbar.home-button"),
+        playerPanelButton: t("sideNavbar.player-panel-button"),
+        playGameButton: t("sideNavbar.play-game-button"),
+        awardButton: t("sideNavbar.awards-button"),
+        highScoresButton: t("sideNavbar.high-scores-button"),
+        contactButton: t("sideNavbar.contact-button"),
+    };
+
     return (
         <MoralisProvider initializeOnMount={false}>
             <NotificationProvider>
-                <Layout
-                    connected={t("header.connected")}
-                    pleaseConnect={t("header.please-connect")}
-                    notSupportedChain={t("header.not-supported-chain")}
-                    supportedChains={t("header.supported-chains")}
-                    homeButton={t("navbar.home-button")}
-                    howToPlayButton={t("navbar.how-to-play-button")}
-                    playerPanelButton={t("navbar.player-panel-button")}
-                    playGameButton={t("navbar.play-game-button")}
-                    awardButton={t("navbar.awards-button")}
-                    highScoresButton={t("navbar.high-scores-button")}
-                    contactButton={t("navbar.contact-button")}
-                >
+                <Head>
+                    <title>Snake Game Dapp | Home</title>
+                    <meta
+                        name="description"
+                        content="The classic Snake Game with modern Web3 blockchain functionalities.
+                        Score game points to gain FRUIT tokens and unique, cute Super Pet NFT!"
+                    />
+                    <link rel="icon" href="/snake-icon.ico" />
+                </Head>
+                <Layout translations={commonTranslations}>
                     <Component {...pageProps} />
                 </Layout>
             </NotificationProvider>
