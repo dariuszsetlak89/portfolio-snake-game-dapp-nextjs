@@ -17,7 +17,7 @@ export default function Home() {
                 <link rel="icon" href="/favicon.ico" />
             </Head> */}
             {/* <Background /> */}
-            <div class={styles.background}>
+            <div className={styles.background}>
                 <Image src="/test.png" alt="Test" layout="fill" objectFit="cover" />
             </div>
 
