@@ -37,7 +37,7 @@ export default function NotFound() {
                 <p className="p-2 text-4xl font-medium">
                     {t("404:go-back")}{" "}
                     <Link href="/">
-                        <a className="underline">{t("404:home-page")}</a>
+                        <div className="underline">{t("404:home-page")}</div>
                     </Link>{" "}
                     {t("404:time")}
                 </p>

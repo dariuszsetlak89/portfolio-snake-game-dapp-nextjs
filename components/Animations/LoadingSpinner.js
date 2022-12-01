@@ -1,7 +1,7 @@
 export default function LoadingSpinner() {
     return (
         // Loading spinner animation
-        <div className="mx-5 mt-5 mb-10 text-center">
+        <div className="m-10 text-center align-bottom">
             <div role="status">
                 <svg
                     className="inline mr-2 w-16 h-16 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"

@@ -24,7 +24,7 @@ export default function Header({ connectorTranslations, supportedChains }) {
                             <div>
                                 <div className="connectorNotSupportedChain">
                                     <p className="text-2xl font-bold">{connectorTranslations.notSupportedChain}</p>
-                                    <p className="text-xl">{`${connectorTranslations.supportedChains} ${connectorTranslations.supportedChainsIds}`}</p>
+                                    <p className="text-xl">{`${connectorTranslations.supportedChains} ${supportedChainsIds}`}</p>
                                 </div>
                             </div>
                         )}

@@ -1,6 +1,8 @@
-import Head from "next/head";
+import { useEffect } from "react";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
+import { useRouterScroll } from "@moxy/next-router-scroll";
+import Head from "next/head";
 
 export async function getStaticProps({ locale }) {
     return {
@@ -12,6 +14,11 @@ export async function getStaticProps({ locale }) {
 
 export default function Home(props) {
     const { t } = useTranslation();
+    const { updateScroll } = useRouterScroll();
+
+    useEffect(() => {
+        updateScroll();
+    }, []);
 
     return (
         <div>

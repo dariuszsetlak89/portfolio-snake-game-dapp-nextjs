@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import { useMoralis } from "react-moralis";
 import Image from "next/image";
 import Background from "../components/Background";
+import Link from "next/link";
 
 const supportedChains = ["31337", "4", "5"];
 
@@ -14,7 +15,7 @@ export default function Home() {
             {/* <Head>
                 <title>Snake Game Dapp</title>
                 <meta name="description" content="Snake Game Dapp" />
-                <link rel="icon" href="/favicon.ico" />
+                <Link rel="icon" href="/favicon.ico" />
             </Head> */}
             {/* <Background /> */}
             <div className={styles.background}>

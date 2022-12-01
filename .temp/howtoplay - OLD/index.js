@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
+import Link from "next/link";
 
 export async function getStaticProps({ locale }) {
     return {
@@ -22,7 +23,7 @@ export default function Home(props) {
                     content="The classic Snake Game with modern Web3 blockchain functionalities.
                     Score game points to gain FRUIT tokens and unique, cute Super Pet NFT!"
                 />
-                <link rel="icon" href="/snake-icon.ico" />
+                <Link rel="icon" href="/snake-icon.ico" />
             </Head>
             <div>
                 <h1 className="pageTitle">{t("howtoplay:title")}</h1>

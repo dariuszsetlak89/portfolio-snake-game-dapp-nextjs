@@ -10,7 +10,7 @@ export default function Header() {
                 <Image
                     src="/images/snake-game-dapp.png"
                     alt="Snake wordart"
-                    width={800}
+                    width={900}
                     height={150}
                     priority="true"
                     className="w-auto"

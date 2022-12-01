@@ -22,7 +22,6 @@ export default function Layout({ translations, children }) {
         playGameButton: translations.playGameButton,
         awardButton: translations.awardButton,
         highScoresButton: translations.highScoresButton,
-        contactButton: translations.contactButton,
     };
 
     return (

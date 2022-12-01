@@ -2,7 +2,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { useMoralis } from "react-moralis";
 import Head from "next/head";
-import PlayerPanel from "../../components/PlayerPanel";
+import SnakeGame from "../../components/SnakeGame";
 
 const supportedChainsIds = ["31337", "5"];
 
@@ -12,16 +12,16 @@ const supportedChainsIds = ["31337", "5"];
 export async function getStaticProps({ locale }) {
     return {
         props: {
-            ...(await serverSideTranslations(locale, ["common", "player"])),
+            ...(await serverSideTranslations(locale, ["common", "game"])),
         },
     };
 }
 
-export default function Player() {
+export default function snakegame() {
     ////////////////////
     //  Translations  //
     ////////////////////
-    const { t } = useTranslation("player");
+    const { t } = useTranslation("game");
 
     /////////////////////
     // useMoralis Hook //
@@ -32,17 +32,17 @@ export default function Player() {
     return (
         <div>
             <Head>
-                <title>Snake Game Dapp | Player</title>
+                <title>Snake Game Dapp | Game</title>
                 <link rel="icon" href="/snake-icon.ico" />
             </Head>
             <div>
-                <h1 className="pageTitle">{t("player:title")}</h1>
+                <h1 className="pageTitle">{t("game:title")}</h1>
             </div>
             <div>
                 {isWeb3Enabled ? (
                     <div>
                         {supportedChainsIds.includes(chainId.toString()) ? (
-                            <PlayerPanel />
+                            <SnakeGame />
                         ) : (
                             <h1 className="connectionProblem">Not supported chain!</h1>
                         )}

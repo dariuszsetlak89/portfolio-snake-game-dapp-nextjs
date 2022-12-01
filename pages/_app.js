@@ -3,6 +3,7 @@ import { NotificationProvider } from "@web3uikit/core";
 import { appWithTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
+import { RouterScrollProvider } from "@moxy/next-router-scroll";
 import Head from "next/head";
 import Layout from "../components/Layout";
 import "../styles/globals.css";
@@ -29,14 +30,13 @@ function SnakeGameDapp({ Component, pageProps }) {
         playGameButton: t("sideNavbar.play-game-button"),
         awardButton: t("sideNavbar.awards-button"),
         highScoresButton: t("sideNavbar.high-scores-button"),
-        contactButton: t("sideNavbar.contact-button"),
     };
 
     return (
         <MoralisProvider initializeOnMount={false}>
             <NotificationProvider>
                 <Head>
-                    <title>Snake Game Dapp | Home</title>
+                    <title>Snake Game Dapp</title>
                     <meta
                         name="description"
                         content="The classic Snake Game with modern Web3 blockchain functionalities.
@@ -44,9 +44,11 @@ function SnakeGameDapp({ Component, pageProps }) {
                     />
                     <link rel="icon" href="/snake-icon.ico" />
                 </Head>
-                <Layout translations={commonTranslations}>
-                    <Component {...pageProps} />
-                </Layout>
+                <RouterScrollProvider>
+                    <Layout translations={commonTranslations}>
+                        <Component {...pageProps} />
+                    </Layout>
+                </RouterScrollProvider>
             </NotificationProvider>
         </MoralisProvider>
     );
