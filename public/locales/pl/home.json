@@ -1,3 +1,17 @@
 {
-    "title": "STRONA GŁÓWNA"
+    "title": "STRONA DOMOWA",
+    "description-header": "Witaj w grze Snake Game Dapp!",
+    "description-text1": "Każdy z Nas grał kiedyś w kultową już grę Snake. Tutaj będziesz mieć okazję zagrać w tą klasyczną grę w nowoczesnej formie aplikacji Web3.",
+    "description-text2": "Gra jest oparta na smart kontrakcie działającym na sieci blockchain, który umożliwia prowadzenie rozgrywki i wypłatę nagród w zdecentralizowanej formie, bez udziału strony trzeciej, zachowując anonimowość graczy, charakterystyczną dla publicznych sieci blockchain.",
+    "description-text3": "Celem gry jest zdobycie jak najwyższego wyniku w pojedynczej grze. Trzech najlepszych graczy, którzy zdobędą najwięcej punktów w danej rundzie gry zostanie nagrodzonych otrzymując odpowiednią do zajętego miejsca kwotę kryptowaluty z puli gry.",
+    "howToPlay-header": "Jak grać?",
+    "howToPlay-point1": "1) Odbierz darmowe SNAKE tokeny w panelu gracza, opłać pojedynczą grę używając SNAKE i zagraj w 3 testowe gry.",
+    "howToPlay-point2": "2) Kup SNAKE tokeny i rywalizuj z innymi graczami o miejsce na podium w danej rundzie gry, aby zgarnąć środki zgromadzone w puli gry.",
+    "howToPlay-point3": "3) Uzyskaj minimalną wymaganą ilość punktów w pojedynczej grze  (100 punktów) aby zdobyć Snake NFT.",
+    "howToPlay-point4": "4) Wymień wymaganą ilość zdobytych Snake NFTs na unikalny Super Pet NFT, który obniża opłacę za pojedyńczą grę.",
+    "detailed-rules": "Kliknij w przycisk poniżej aby przeczytać szczegółowe zasady gry.",
+
+    "homeComponent": {
+        "howToPlay-button": "JAK GRAĆ"
+    }
 }

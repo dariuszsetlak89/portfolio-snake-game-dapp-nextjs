@@ -1,12 +1,10 @@
 import { useMoralis, useWeb3Contract } from "react-moralis";
 import { useState, useEffect } from "react";
 import { contractAddresses, snakeGameAbi, tokenAbi, nftAbi } from "../../constants";
-import GamesCard from "./GameCard";
-import SnakeTokenCard from "./SnakeTokenCard/index.js";
-import SnakeNftCard from "./SnakeNftCard/index.js";
-import SuperPetNftCard from "./SuperPetNftCard/index.js";
+import CurrentRoundCard from "./CurrentRoundCard";
+import GlobalStatsCard from "./GlobalStatsCard";
 
-export default function Player() {
+export default function GamePanel({ gamePanelT }) {
     /////////////////////
     // useMoralis Hook //
     /////////////////////
@@ -25,24 +23,22 @@ export default function Player() {
     //  State Hooks  //
     ///////////////////
     const [snakeAirdropFlag, setSnakeAirdropFlag] = useState(false);
-    const [gameStartedFlag, setGameStartedFlag] = useState(false);
-    const [superPetNftClaimFlag, setSuperPetNftClaimFlag] = useState(false);
-    const [gamesPlayed, setGamesPlayed] = useState(0);
-    const [lastScore, setLastScore] = useState(0);
-    const [bestScore, setBestScore] = useState(0);
-    const [snakeNftMinted, setSnakeNftMinted] = useState(0);
-    const [superPetNftMinted, setSuperPetNftMinted] = useState(0);
-    const [scoreRequired, setScoreRequired] = useState(0);
-    const [snakeNftRequired, setSnakeNftRequired] = useState(0);
-    const [snakeExchangeRate, setSnakeExchangeRate] = useState(0);
-    const [superPetNftMintFee, setSuperPetNftMintFee] = useState(0);
-    const [snakeAirdropAmount, setSnakeAirdropAmount] = useState(0);
-    const [maxSnakeNfts, setMaxSnakeNfts] = useState(0);
-    const [maxSuperPetNfts, setMaxSuperPetNfts] = useState(0);
-    const [gameFee, setGameFee] = useState(0);
-    const [snakeBalance, setSnakeBalance] = useState(0);
-    const [snakeNftBalance, setSnakeNftBalance] = useState(0);
-    const [superPetNftBalance, setSuperPetNftBalance] = useState(0);
+
+    const [currentRound, setCurrentRound] = useState(0);
+    const [roundGamesPlayed, setRoundGamesPlayed] = useState(0);
+    const [roundHighestScore, setRoundHighestScore] = useState(0);
+    const [roundBestPlayer, setRoundBestPlayer] = useState(0);
+    const [gamePoolBalance, setGamePoolBalance] = useState(0);
+    const [roundStart, setRoundStart] = useState(0);
+    const [roundEnd, setRoundEnd] = useState(0);
+    const [roundDuration, setRoundDuration] = useState(0);
+    const [numberOfPlayers, setNumberOfPlayers] = useState(0);
+    const [gamesPlayedTotal, setGamesPlayedTotal] = useState(0);
+    const [highestScoreEver, setHighestScoreEver] = useState(0);
+    const [bestPlayerEver, setBestPlayerEver] = useState(0);
+    const [snakeTokenSupply, setSnakeTokenSupply] = useState(0);
+    const [snakeNftMintedTotal, setSnakeNftMintedTotal] = useState(0);
+    const [superPetNftMintedTotal, setSuperPetNftMintedTotal] = useState(0);
 
     /////////////////////
     // useEffect Hooks //
@@ -59,81 +55,37 @@ export default function Player() {
     // Contract Functions //
     ////////////////////////
 
-    // Contract function: getPlayerDataFunction
-    const { runContractFunction: getPlayerDataFunction } = useWeb3Contract({
+    // Contract function: getGameRound
+    const { runContractFunction: getGameRound } = useWeb3Contract({
         abi: snakeGameAbi,
         contractAddress: snakeGameAddress,
-        functionName: "getPlayerData",
+        functionName: "getGameRound",
+        params: {},
+    });
+
+    // Contract function: getGameRoundData
+    const { runContractFunction: getGameRoundData } = useWeb3Contract({
+        abi: snakeGameAbi,
+        contractAddress: snakeGameAddress,
+        functionName: "getGameRoundData",
         params: {
-            _player: account,
+            _gameRound: currentRound,
         },
     });
 
-    // Contract function: scoreRequiredFunction
-    const { runContractFunction: scoreRequiredFunction } = useWeb3Contract({
+    // RoundStart
+    // RoundEnd
+    // Duration
+
+    // Contract function: getPlayersNumberTotal - total number of players
+    const { runContractFunction: getPlayersNumberTotal } = useWeb3Contract({
         abi: snakeGameAbi,
         contractAddress: snakeGameAddress,
-        functionName: "i_scoreRequired",
+        functionName: "getPlayersNumberTotal",
         params: {},
     });
 
-    // Contract function: snakeNftRequiredFunction
-    const { runContractFunction: snakeNftRequiredFunction } = useWeb3Contract({
-        abi: snakeGameAbi,
-        contractAddress: snakeGameAddress,
-        functionName: "i_snakeNftRequired",
-        params: {},
-    });
-
-    // Contract function: snakeExchangeRateFunction
-    const { runContractFunction: snakeExchangeRateFunction } = useWeb3Contract({
-        abi: snakeGameAbi,
-        contractAddress: snakeGameAddress,
-        functionName: "i_snakeExchangeRate",
-        params: {},
-    });
-
-    // Contract function: superPetNftMintFeeFunction
-    const { runContractFunction: superPetNftMintFeeFunction } = useWeb3Contract({
-        abi: snakeGameAbi,
-        contractAddress: snakeGameAddress,
-        functionName: "i_superPetNftMintFee",
-        params: {},
-    });
-
-    // Contract function: snakeAirdropAmountFunction
-    const { runContractFunction: snakeAirdropAmountFunction } = useWeb3Contract({
-        abi: snakeGameAbi,
-        contractAddress: snakeGameAddress,
-        functionName: "SNAKE_AIRDROP",
-        params: {},
-    });
-
-    // Contract function: maxSnakeNftsFunction
-    const { runContractFunction: maxSnakeNftsFunction } = useWeb3Contract({
-        abi: snakeGameAbi,
-        contractAddress: snakeGameAddress,
-        functionName: "MAX_SNAKE_NFTS",
-        params: {},
-    });
-
-    // Contract function: maxSuperPetNftsFunction
-    const { runContractFunction: maxSuperPetNftsFunction } = useWeb3Contract({
-        abi: snakeGameAbi,
-        contractAddress: snakeGameAddress,
-        functionName: "MAX_SUPER_PET_NFTS",
-        params: {},
-    });
-
-    // Contract function: gameFeeCalculation
-    const { runContractFunction: gameFeeCalculation } = useWeb3Contract({
-        abi: snakeGameAbi,
-        contractAddress: snakeGameAddress,
-        functionName: "gameFeeCalculation",
-        params: {
-            _player: account,
-        },
-    });
+    ////////////////////////////////////////////////////////////////////////////////
 
     // Contract function: snakeBalanceFunction
     const { runContractFunction: snakeBalanceFunction } = useWeb3Contract({
@@ -236,50 +188,28 @@ export default function Player() {
 
     return (
         <div className="mt-5">
+            <div>{gamePanelT.inDevelopment}</div>
             <div className="flex justify-evenly">
-                <GamesCard
+                <CurrentRoundCard
                     updateUI={() => updateUI()}
-                    gamesPlayed={gamesPlayed}
-                    lastScore={lastScore}
-                    bestScore={bestScore}
-                    gameStartedFlag={gameStartedFlag}
+                    currentRound={currentRound}
+                    roundGamesPlayed={roundGamesPlayed}
+                    roundHighestScore={roundHighestScore}
+                    roundBestPlayer={roundBestPlayer}
+                    gamePoolBalance={gamePoolBalance}
+                    roundStart={roundStart}
+                    roundEnd={roundEnd}
+                    roundDuration={roundDuration}
                 />
-                <SnakeTokenCard
+                <GlobalStatsCard
                     updateUI={() => updateUI()}
-                    snakeGameAddress={snakeGameAddress}
-                    snakeGameAbi={snakeGameAbi}
-                    snakeAirdropFlag={snakeAirdropFlag}
-                    snakeBalance={snakeBalance}
-                    gameFee={gameFee}
-                    snakeAirdropAmount={snakeAirdropAmount}
-                    snakeExchangeRate={snakeExchangeRate}
-                    chainId={chainId}
-                />
-            </div>
-            <div className="flex justify-evenly">
-                <SnakeNftCard
-                    updateUI={() => updateUI()}
-                    scoreRequired={scoreRequired}
-                    maxSnakeNfts={maxSnakeNfts}
-                    snakeNftMinted={snakeNftMinted}
-                    snakeNftBalance={snakeNftBalance}
-                />
-                <SuperPetNftCard
-                    updateUI={() => updateUI()}
-                    snakeGameAddress={snakeGameAddress}
-                    snakeGameAbi={snakeGameAbi}
-                    snakeNftAddress={snakeNftAddress}
-                    superPetNftAddress={superPetNftAddress}
-                    nftAbi={nftAbi}
-                    superPetNftClaimFlag={superPetNftClaimFlag}
-                    snakeNftRequired={snakeNftRequired}
-                    superPetNftMintFee={superPetNftMintFee}
-                    maxSuperPetNfts={maxSuperPetNfts}
-                    superPetNftMinted={superPetNftMinted}
-                    superPetNftBalance={superPetNftBalance}
-                    snakeNftBalance={snakeNftBalance}
-                    chainId={chainId}
-                    account={account}
+                    numberOfPlayers={numberOfPlayers}
+                    gamesPlayedTotal={gamesPlayedTotal}
+                    highestScoreEver={highestScoreEver}
+                    bestPlayerEver={bestPlayerEver}
+                    snakeTokenSupply={snakeTokenSupply}
+                    snakeNftMintedTotal={snakeNftMintedTotal}
+                    superPetNftMintedTotal={superPetNftMintedTotal}
                 />
             </div>
         </div>

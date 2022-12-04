@@ -1,0 +1,16 @@
+{
+    "title": "PLAY GAME",
+    "description-header": "Play the Snake Game",
+    "description-text1": "Want to test the Game before real play? Claim free SNAKE tokens airdrop and play 3 test games.",
+    "description-text2": "Want to compete with other players? Simply buy SNAKE tokens, pay for a game using SNAKE and start the game to get the highest score to grab the prize.",
+
+    "PlayGame": {
+        "start-game-button": "START GAME",
+        "balance-too-low": "SNAKE balance too low!"
+    },
+
+    "GameFeeInfo": {
+        "game-fee": "Game fee:",
+        "snake-balance": "SNAKE balance:"
+    }
+}

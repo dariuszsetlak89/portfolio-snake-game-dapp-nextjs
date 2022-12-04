@@ -14,7 +14,7 @@ export async function getStaticProps({ locale }) {
 }
 
 export default function NotFound() {
-    const { t } = useTranslation();
+    const { t } = useTranslation("404");
     const router = useRouter();
 
     useEffect(() => {

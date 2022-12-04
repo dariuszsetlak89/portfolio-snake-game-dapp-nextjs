@@ -1,0 +1,16 @@
+{
+    "title": "ZAGRAJ W GRĘ",
+    "description-header": "Zagraj w grę Snake",
+    "description-text1": "Chcesz przetestować grę przed prawdziwą rozgrywką? Odbierz darmowy airdrop tokenów SNAKE i zagraj w 3 testowe gry.",
+    "description-text2": "Chcesz rywalizować z innymi graczami? Po prostu kup tokeny SNAKE, opłać za ich pomocą grę i rozpocznij grę aby zdobić najlepszy wynik i zgarnąć nagrodę.",
+
+    "PlayGame": {
+        "start-game-button": "ROZPOCZNIJ GRĘ",
+        "balance-too-low": "Niewystarczająca ilość tokenów SNAKE!"
+    },
+
+    "GameFeeInfo": {
+        "game-fee": "Opłata za grę:",
+        "snake-balance": "Saldo tokenów SNAKE:"
+    }
+}

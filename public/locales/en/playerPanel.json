@@ -1,0 +1,12 @@
+{
+    "title": "PLAYER PANEL",
+    "description-header": "Player acount management panel",
+    "description-text1": "Player games card - Player's played games statistics.",
+    "description-text2": "SNAKE token card - Player's SNAKE token statistics, SNAKE airdrop claim and buys.",
+    "description-text3": "Snake NFT card - Player's Snake NFTs data and minted Snake NFTs balance.",
+    "description-text4": "SuperPet NFT card - Player's SuperPet NFT data, minted SuperPet NFTs balance and SuperPet NFT mints.",
+
+    "PlayerPanel": {
+        "test-message": "TEST"
+    }
+}

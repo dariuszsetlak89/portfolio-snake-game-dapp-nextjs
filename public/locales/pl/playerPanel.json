@@ -1,0 +1,12 @@
+{
+    "title": "PANEL GRACZA",
+    "description-header": "Panel zarządzania kontem gracza",
+    "description-text1": "Karta gry - statystyki rozegranych przez gracza gier.",
+    "description-text2": "Karta SNAKE tokenów - statystyki SNAKE tokenów gracza, odbiór airdropa oraz zakup tokenów SNAKE.",
+    "description-text3": "Karta Snake NFT - dane dotyczące tokenów Snake NFT i balans wymintowanych przez gracza tokenów Snake NFT.",
+    "description-text4": "Karta SuperPet NFT - dane dotyczące tokenów SuperPet NFT, balans wymintowanych przez gracza tokenów SuperPet NFT oraz mintowanie nowych tokenów SuperPet NFT.",
+
+    "PlayerPanel": {
+        "test-message": "TEST"
+    }
+}

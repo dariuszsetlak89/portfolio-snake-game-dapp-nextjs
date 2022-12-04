@@ -1,5 +1,6 @@
 import { useState } from "react";
-import Image from "next/image";
+import readNativeCurrencyName from "../../_Helpers_/readNativeCurrencyName";
+import RefreshButton from "../../_Helpers_/RefreshButton";
 import AirdropModal from "./AirdropModal";
 import BuyModal from "./BuyModal";
 
@@ -46,37 +47,10 @@ export default function SnakeCard({
     // Handle buy button click function
     const handleBuyButtonClick = () => {
         // Read native currency name
-        readNativeCurrencyName(chainId);
+        setNativeCurrencyName(readNativeCurrencyName(chainId));
         // Show buy SNAKE modal
         setShowBuyModal(true);
         // console.log("Show buy SNAKE modal!");
-    };
-
-    //////////////////////
-    // Helper Functions //
-    //////////////////////
-
-    // Native currency name
-    const readNativeCurrencyName = (chainId) => {
-        switch (chainId) {
-            case 31337:
-                setNativeCurrencyName("Hardhat ETH");
-                break;
-            case 1:
-                setNativeCurrencyName("ETH");
-                break;
-            case 5:
-                setNativeCurrencyName("Goerli ETH");
-                break;
-            case 137:
-                setNativeCurrencyName("MATIC");
-                break;
-            case 80001:
-                setNativeCurrencyName("Mumbai MATIC");
-                break;
-            default:
-                setNativeCurrencyName("");
-        }
     };
 
     return (
@@ -85,14 +59,12 @@ export default function SnakeCard({
             <div className="flex justify-between">
                 <div className="cardTitle">SNAKE token card</div>
                 {/* UpdateUI button */}
-                <div className="refreshButtonSmall">
-                    <Image
-                        src="/images/refresh.png"
-                        alt="Refresh button"
-                        width={24}
-                        height={24}
-                        onClick={updateCard}
-                        className="hover:animate-spin"
+                <div>
+                    <RefreshButton
+                        buttonStyle={"refreshButtonSmall"}
+                        buttonWidth={24}
+                        buttonHeight={24}
+                        onClickAction={updateCard}
                     />
                 </div>
             </div>

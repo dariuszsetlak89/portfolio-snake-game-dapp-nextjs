@@ -1,18 +1,17 @@
 {
-    "header": {
+    "connector": {
         "connected": "Connected!",
         "please-connect": "Please connect to a Wallet",
         "not-supported-chain": "Not supported chain!",
-        "supported-chains": "Supported chains id:"
+        "supported-chains": "Supported chain IDs:",
+        "wallet-not-connected": "Web3 wallet not connected!"
     },
-    "topNavbar": {
-        "how-to-play-button": "HOW TO PLAY"
-    },
+
     "sideNavbar": {
         "home-button": "HOME",
         "player-panel-button": "PLAYER PANEL",
         "play-game-button": "PLAY GAME",
-        "awards-button": "NFT AWARDS",
-        "high-scores-button": "HIGH SCORES"
+        "nft-awards-button": "NFT AWARDS",
+        "game-panel-button": "GAME PANEL"
     }
 }

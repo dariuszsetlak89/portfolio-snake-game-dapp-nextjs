@@ -1,18 +1,17 @@
 {
-    "header": {
+    "connector": {
         "connected": "Połączono!",
         "please-connect": "Połącz się proszę z Portfelem",
         "not-supported-chain": "Nie obsługiwana sieć!",
-        "supported-chains": "Identyfikatory obsługiwanych sieci:"
+        "supported-chains": "ID obsługiwanych sieci:",
+        "wallet-not-connected": "Web3 portfel nie podłączony!!"
     },
-    "topNavbar": {
-        "how-to-play-button": "JAK GRAĆ"
-    },
+
     "sideNavbar": {
         "home-button": "STRONA DOMOWA",
         "player-panel-button": "PANEL GRACZA",
         "play-game-button": "ZAGRAJ W GRĘ",
-        "awards-button": "NAGRODY NFT",
-        "high-scores-button": "NAJWYŻSZE WYNIKI"
+        "nft-awards-button": "NAGRODY NFT",
+        "game-panel-button": "PANEL GRY"
     }
 }

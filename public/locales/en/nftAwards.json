@@ -1,0 +1,10 @@
+{
+    "title": "NFT AWARDS",
+    "description-header": "NFT awards header",
+    "description-text1": "NFT awards description",
+
+    "NftAwards": {
+        "nft-marketplace-button": "NFT Marketplace",
+        "in-development": "In development..."
+    }
+}

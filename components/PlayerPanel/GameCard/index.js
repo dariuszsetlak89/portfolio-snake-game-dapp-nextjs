@@ -1,5 +1,4 @@
-import Link from "next/link";
-import Image from "next/image";
+import RefreshButton from "../../_Helpers_/RefreshButton";
 
 export default function GamesCard({ updateUI, gamesPlayed, lastScore, bestScore, gameStartedFlag }) {
     //////////////////
@@ -17,14 +16,12 @@ export default function GamesCard({ updateUI, gamesPlayed, lastScore, bestScore,
             <div className="flex justify-between">
                 <div className="cardTitle">Player games card</div>
                 {/* UpdateUI button */}
-                <div className="refreshButtonSmall">
-                    <Image
-                        src="/images/refresh.png"
-                        alt="Refresh button"
-                        width={24}
-                        height={24}
-                        onClick={updateCard}
-                        className="hover:animate-spin"
+                <div>
+                    <RefreshButton
+                        buttonStyle={"refreshButtonSmall"}
+                        buttonWidth={24}
+                        buttonHeight={24}
+                        onClickAction={updateCard}
                     />
                 </div>
             </div>

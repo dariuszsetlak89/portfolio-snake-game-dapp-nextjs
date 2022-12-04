@@ -1,0 +1,9 @@
+{
+    "title": "PANEL GRY",
+    "description-header": "Nagłówek panelu gry",
+    "description-text1": "Opis panelu gry",
+
+    "GamePanel": {
+        "in-development": "W rozwoju..."
+    }
+}

@@ -1,3 +1,17 @@
 {
-    "title": "HOME PAGE"
+    "title": "HOME PAGE",
+    "description-header": "Welcome to Snake Game Dapp!",
+    "description-text1": "Probably each of us once played the cult game Snake. Here you will have the opportunity to play this classic game in a modern Web3 application form.",
+    "description-text2": "The game is based on a smart contract operating on a blockchain network, which allows you to play and pay prizes in a decentralized form, without the participation of a third party, while maintaining the anonymity of players, characteristic of public blockchain networks.",
+    "description-text3": "The goal of the game is to get the highest score possible in a single game. The top three players who score the most points in a given round of the game will be rewarded with an amount of cryptocurrency from the game pool appropriate to their place.",
+    "howToPlay-header": "How to play?",
+    "howToPlay-point1": "1) Collect free SNAKE tokens in the player panel, pay for a single game using SNAKE and play 3 test games.",
+    "howToPlay-point2": "2) Buy SNAKE tokens and compete with other players for a place on the podium in a given round of the game to win the funds accumulated in the game pool.",
+    "howToPlay-point3": "3) Score the minimum required number of points in a single game (100 points) to grab Snake NFT.",
+    "howToPlay-point4": "4) Exchange the required amount of Snake NFTs for a unique Super Pet NFT, which reduces the fee of a single game.",
+    "detailed-rules": "Click the button below to read the detailed game rules.",
+
+    "homeComponent": {
+        "howToPlay-button": "HOW TO PLAY"
+    }
 }

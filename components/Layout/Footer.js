@@ -4,11 +4,6 @@ export default function Footer() {
     return (
         <footer>
             <div className="footerDescription">
-                {/* <span className="footerDescriptionIcon">
-                    <a href="http://google.com" target="_blank">
-                        <Image src="/images/icons/website.png" alt="Website icon" width={30} height={30} />
-                    </a>
-                </span> */}
                 <span className="footerDescriptionIcon">
                     <a href="mailto:kryptoprogramista89@gmail.com" target="_blank">
                         <Image src="/images/icons/email.png" alt="Email icon" width={30} height={30} />
@@ -20,11 +15,6 @@ export default function Footer() {
                     </a>
                 </span>
                 <span className="footerDescriptionText">Copyright © 2022 dariuszsetlak89</span>
-                {/* <span className="footerDescriptionIcon">
-                    <a href="https://www.linkedin.com/in/dariuszsetlak/" target="_blank">
-                        <Image src="/images/icons/linkedin.png" alt="Linkedin icon" width={30} height={30} />
-                    </a>
-                </span> */}
                 <span className="footerDescriptionIcon">
                     <a href="https://t.me/DarekS89" target="_blank">
                         <Image src="/images/icons/telegram.png" alt="Telegram icon" width={30} height={30} />

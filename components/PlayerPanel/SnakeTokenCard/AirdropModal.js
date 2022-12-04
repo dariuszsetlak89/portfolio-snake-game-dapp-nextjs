@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Modal, useNotification } from "@web3uikit/core";
 import { useWeb3Contract } from "react-moralis";
-import LoadingSpinner from "../../Animations/LoadingSpinner";
+import LoadingSpinner from "../../_Helpers_/LoadingSpinner";
 
 export default function AirdropModal({
     isVisible,

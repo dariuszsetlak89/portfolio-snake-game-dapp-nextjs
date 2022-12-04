@@ -1,9 +1,7 @@
 import { useMoralis } from "react-moralis";
 import { ConnectButton } from "@web3uikit/web3";
 
-const supportedChainsIds = ["31337", "5"];
-
-export default function Header({ connectorTranslations, supportedChains }) {
+export default function Header({ connectorT, supportedChainIDs }) {
     const { isWeb3Enabled, chainId } = useMoralis();
 
     return (
@@ -14,24 +12,24 @@ export default function Header({ connectorTranslations, supportedChains }) {
             <div>
                 {isWeb3Enabled ? (
                     <div>
-                        {supportedChainsIds.includes(parseInt(chainId).toString()) ? (
+                        {supportedChainIDs.includes(parseInt(chainId).toString()) ? (
                             <div>
                                 <div className="connectorConnected">
-                                    <p>{connectorTranslations.connected}</p>
+                                    <p>{connectorT.connected}</p>
                                 </div>
                             </div>
                         ) : (
                             <div>
                                 <div className="connectorNotSupportedChain">
-                                    <p className="text-2xl font-bold">{connectorTranslations.notSupportedChain}</p>
-                                    <p className="text-xl">{`${connectorTranslations.supportedChains} ${supportedChainsIds}`}</p>
+                                    <p className="text-2xl font-bold">{connectorT.notSupportedChain}</p>
+                                    <p className="text-xl">{`${connectorT.supportedChains} ${supportedChainIDs}`}</p>
                                 </div>
                             </div>
                         )}
                     </div>
                 ) : (
                     <div className="connectorPleaseConnect">
-                        <p>{connectorTranslations.pleaseConnect}</p>
+                        <p>{connectorT.pleaseConnect}</p>
                     </div>
                 )}
             </div>

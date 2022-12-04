@@ -1,5 +1,6 @@
 import { useState } from "react";
-import Image from "next/image";
+import readNativeCurrencyName from "../../_Helpers_/readNativeCurrencyName";
+import RefreshButton from "../../_Helpers_/RefreshButton";
 import MintModal from "./MintModal";
 
 export default function SuperPetNftCard({
@@ -25,6 +26,7 @@ export default function SuperPetNftCard({
     const [showMintModal, setShowMintModal] = useState(false);
     const hideMintModal = () => setShowMintModal(false);
     const [nativeCurrencyName, setNativeCurrencyName] = useState("");
+    const [mintButtonVisible, setMintButtonVisible] = useState(true);
 
     //////////////////
     // UI Functions //
@@ -42,37 +44,10 @@ export default function SuperPetNftCard({
     // Handle SNAKE airdrop button click function
     const handleMintButtonClick = () => {
         // Read native currency name
-        readNativeCurrencyName(chainId);
+        setNativeCurrencyName(readNativeCurrencyName(chainId));
         // Show mint modal
-        superPetNftClaimFlag == true ? setShowMintModal(true) : "";
+        superPetNftClaimFlag == true ? setShowMintModal(true) : setMintButtonVisible(false);
         // console.log("Show mint modal!");
-    };
-
-    //////////////////////
-    // Helper Functions //
-    //////////////////////
-
-    // Native currency name
-    const readNativeCurrencyName = (chainId) => {
-        switch (chainId) {
-            case 31337:
-                setNativeCurrencyName("Hardhat ETH");
-                break;
-            case 1:
-                setNativeCurrencyName("ETH");
-                break;
-            case 5:
-                setNativeCurrencyName("Goerli ETH");
-                break;
-            case 137:
-                setNativeCurrencyName("MATIC");
-                break;
-            case 80001:
-                setNativeCurrencyName("Mumbai MATIC");
-                break;
-            default:
-                setNativeCurrencyName("");
-        }
     };
 
     return (
@@ -81,14 +56,12 @@ export default function SuperPetNftCard({
             <div className="flex justify-between">
                 <div className="cardTitle">SuperPet NFT card</div>
                 {/* UpdateUI button */}
-                <div className="refreshButtonSmall">
-                    <Image
-                        src="/images/refresh.png"
-                        alt="Refresh button"
-                        width={24}
-                        height={24}
-                        onClick={updateCard}
-                        className="hover:animate-spin"
+                <div>
+                    <RefreshButton
+                        buttonStyle={"refreshButtonSmall"}
+                        buttonWidth={24}
+                        buttonHeight={24}
+                        onClickAction={updateCard}
                     />
                 </div>
             </div>
@@ -98,10 +71,6 @@ export default function SuperPetNftCard({
                     <div className="cardColumns">
                         <div className="cardColumn1">Snake NFT required:</div>
                         <div className="cardColumn2">{snakeNftRequired.toString()} SPET</div>
-                    </div>
-                    <div className="cardColumns">
-                        <div className="cardColumn1">SuperPet NFT claim:</div>
-                        <div className="cardColumn2">{superPetNftClaimFlag.toString().toUpperCase()}</div>
                     </div>
                     <div className="cardColumns">
                         <div className="cardColumn1">Max SuperPet NFTs:</div>
@@ -123,17 +92,21 @@ export default function SuperPetNftCard({
                         <div className="cardColumn1">SuperPet NFTs balance:</div>
                         <div className="cardColumn2">{superPetNftBalance.toString()} SPET</div>
                     </div>
+                    <div className="cardColumns">
+                        <div className="cardColumn1">SuperPet NFT claim:</div>
+                        <div className="cardColumn2">{superPetNftClaimFlag.toString().toUpperCase()}</div>
+                    </div>
                 </div>
                 {/* Mint SuperPet NFT button */}
                 <div>
-                    {superPetNftClaimFlag == true ? (
+                    {mintButtonVisible == true ? (
                         <div className="text-center">
                             <button type="button" className="myButtonLimeMiddle" onClick={handleMintButtonClick}>
                                 Mint SuperPet NFT
                             </button>
                         </div>
                     ) : (
-                        ""
+                        <div className="error">Not entitled to mint!</div>
                     )}
                 </div>
                 {/* Mint SuperPet NFT modal */}

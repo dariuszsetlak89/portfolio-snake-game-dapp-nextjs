@@ -1,43 +1,40 @@
-import { useTranslation } from "next-i18next";
 import Link from "next/link";
 
-export default function SideNavbar({ sideNavbarTranslations }) {
-    const { t } = useTranslation(["common", "layout"]);
-
+export default function SideNavbar({ sideNavbarT }) {
     return (
         <nav className="sideNavbarNav">
-            <div className="">
+            <div>
                 <Link href="/">
                     <button type="button" className="myMenuButton">
-                        {sideNavbarTranslations.homeButton}
+                        {sideNavbarT.homeButton}
                     </button>
                 </Link>
             </div>
-            <div className="">
-                <Link href="/player/">
+            <div>
+                <Link href="/player-panel">
                     <button type="button" className="myMenuButton">
-                        {sideNavbarTranslations.playerPanelButton}
+                        {sideNavbarT.playerPanelButton}
                     </button>
                 </Link>
             </div>
-            <div className="">
-                <Link href="/snakegame/">
+            <div>
+                <Link href="/play-game">
                     <button type="button" className="myMenuButton">
-                        {sideNavbarTranslations.playGameButton}
+                        {sideNavbarT.playGameButton}
                     </button>
                 </Link>
             </div>
-            <div className="">
-                <Link href="/awards/">
+            <div>
+                <Link href="/nft-awards">
                     <button type="button" className="myMenuButton">
-                        {sideNavbarTranslations.awardButton}
+                        {sideNavbarT.nftAwardsButton}
                     </button>
                 </Link>
             </div>
-            <div className="">
-                <Link href="/highscores/">
+            <div>
+                <Link href="/game-panel">
                     <button type="button" className="myMenuButton">
-                        {sideNavbarTranslations.highScoresButton}
+                        {sideNavbarT.gamePanelButton}
                     </button>
                 </Link>
             </div>

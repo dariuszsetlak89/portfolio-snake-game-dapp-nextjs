@@ -1,0 +1,10 @@
+{
+    "title": "NAGRODY NFT",
+    "description-header": "Nagłówek nagród NFT",
+    "description-text1": "Opis nagród NFT",
+
+    "NftAwards": {
+        "nft-marketplace-button": "NFT Market",
+        "in-development": "W rozwoju..."
+    }
+}
