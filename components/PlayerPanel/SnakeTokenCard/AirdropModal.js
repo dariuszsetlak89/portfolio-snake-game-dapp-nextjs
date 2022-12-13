@@ -11,19 +11,9 @@ export default function AirdropModal({
     snakeAirdropAmount,
     onClose,
 }) {
-    /////////////////
-    // State Hooks //
-    /////////////////
     const [showLoadingSpinner, setShowLoadingSpinner] = useState(false);
 
-    /////////////////////
-    //  Notifications  //
-    /////////////////////
     const dispatch = useNotification();
-
-    ////////////////////////
-    // Contract Functions //
-    ////////////////////////
 
     // Contract function: snakeAirdrop
     const { runContractFunction: snakeAirdrop } = useWeb3Contract({
@@ -32,10 +22,6 @@ export default function AirdropModal({
         functionName: "snakeAirdrop",
         params: {},
     });
-
-    ///////////////////////
-    // Handler Functions //
-    ///////////////////////
 
     // Handle SNAKE airdrop function
     const handleSnakeAirdrop = async () => {
@@ -58,11 +44,8 @@ export default function AirdropModal({
             title: "SNAKE airdrop received",
             position: "bottomL",
         });
-        // Turn off loading wheel animation
         setShowLoadingSpinner(false);
-        // UpdateUI
         updateUI();
-        // Close modal
         onClose();
     };
 

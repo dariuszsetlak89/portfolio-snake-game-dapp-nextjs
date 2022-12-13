@@ -3,9 +3,6 @@ import LangSwitcher from "./LangSwitcher";
 import RefreshButton from "../_Helpers_/RefreshButton";
 
 export default function TopNavbar({ children }) {
-    ////////////////////
-    // useRouter Hook //
-    ////////////////////
     const router = useRouter();
 
     return (

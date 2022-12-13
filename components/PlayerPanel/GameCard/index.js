@@ -1,10 +1,6 @@
 import RefreshButton from "../../_Helpers_/RefreshButton";
 
 export default function GamesCard({ updateUI, gamesPlayed, lastScore, bestScore, gameStartedFlag }) {
-    //////////////////
-    // UI Functions //
-    //////////////////
-
     // Update card function
     const updateCard = async () => {
         await updateUI();

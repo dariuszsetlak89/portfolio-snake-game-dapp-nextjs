@@ -4,9 +4,6 @@ import { useMoralis } from "react-moralis";
 import Head from "next/head";
 import NftAwards from "../components/NftAwards";
 
-//////////////////////////////
-// Server Side Translations //
-//////////////////////////////
 export async function getStaticProps({ locale }) {
     return {
         props: {
@@ -16,9 +13,6 @@ export async function getStaticProps({ locale }) {
 }
 
 export default function nftAwards({ connectorT, supportedChainIDs }) {
-    ////////////////////
-    //  Translations  //
-    ////////////////////
     const { t } = useTranslation("nftAwards");
 
     const nftAwardsTranslations = {
@@ -26,9 +20,6 @@ export default function nftAwards({ connectorT, supportedChainIDs }) {
         inDevelopment: t("nftAwards:NftAwards.in-development"),
     };
 
-    /////////////////////
-    // useMoralis Hook //
-    /////////////////////
     const { isWeb3Enabled, chainId: chainIdHex } = useMoralis();
     const chainId = parseInt(chainIdHex);
 

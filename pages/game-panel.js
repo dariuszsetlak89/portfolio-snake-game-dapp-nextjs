@@ -6,9 +6,6 @@ import GamePanel from "../components/GamePanel";
 
 const supportedChainsIds = ["31337", "5"];
 
-//////////////////////////////
-// Server Side Translations //
-//////////////////////////////
 export async function getStaticProps({ locale }) {
     return {
         props: {
@@ -18,18 +15,12 @@ export async function getStaticProps({ locale }) {
 }
 
 export default function gamePanel({ connectorT, supportedChainIDs }) {
-    ////////////////////
-    //  Translations  //
-    ////////////////////
     const { t } = useTranslation("gamePanel");
 
     const gamePanelTranslations = {
         inDevelopment: t("gamePanel:GamePanel.in-development"),
     };
 
-    /////////////////////
-    // useMoralis Hook //
-    /////////////////////
     const { isWeb3Enabled, chainId: chainIdHex } = useMoralis();
     const chainId = parseInt(chainIdHex);
 

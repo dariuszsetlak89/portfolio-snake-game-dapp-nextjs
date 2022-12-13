@@ -20,17 +20,10 @@ export default function SuperPetNftCard({
     chainId,
     account,
 }) {
-    ///////////////////
-    //  State Hooks  //
-    ///////////////////
     const [showMintModal, setShowMintModal] = useState(false);
     const hideMintModal = () => setShowMintModal(false);
     const [nativeCurrencyName, setNativeCurrencyName] = useState("");
     const [mintButtonVisible, setMintButtonVisible] = useState(true);
-
-    //////////////////
-    // UI Functions //
-    //////////////////
 
     // Update card function
     const updateCard = async () => {
@@ -47,7 +40,6 @@ export default function SuperPetNftCard({
         setNativeCurrencyName(readNativeCurrencyName(chainId));
         // Show mint modal
         superPetNftClaimFlag == true ? setShowMintModal(true) : setMintButtonVisible(false);
-        // console.log("Show mint modal!");
     };
 
     return (

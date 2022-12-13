@@ -18,20 +18,10 @@ export default function BuyModal({
     account,
     onClose,
 }) {
-    /////////////////
-    // State Hooks //
-    /////////////////
     const [showLoadingSpinner, setShowLoadingSpinner] = useState(false);
     const [snakeNftBalanceTooLow, setSnakeNftBalanceTooLow] = useState(false);
 
-    /////////////////////
-    //  Notifications  //
-    /////////////////////
     const dispatch = useNotification();
-
-    ////////////////////////
-    // Contract Functions //
-    ////////////////////////
 
     // Contract function: isApprovedForAll
     const { runContractFunction: isApprovedForAll } = useWeb3Contract({
@@ -63,10 +53,6 @@ export default function BuyModal({
         msgValue: superPetNftMintFee,
         params: {},
     });
-
-    ///////////////////////
-    // Handler Functions //
-    ///////////////////////
 
     // Handle mint SuperPet NFT button function
     const handleMintSuperPetNftButton = async () => {

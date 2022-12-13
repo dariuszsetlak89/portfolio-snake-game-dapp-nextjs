@@ -4,9 +4,6 @@ import { useMoralis } from "react-moralis";
 import Head from "next/head";
 import PlayerPanel from "../components/PlayerPanel";
 
-//////////////////////////////
-// Server Side Translations //
-//////////////////////////////
 export async function getStaticProps({ locale }) {
     return {
         props: {
@@ -16,18 +13,12 @@ export async function getStaticProps({ locale }) {
 }
 
 export default function playerPanel({ connectorT, supportedChainIDs }) {
-    ////////////////////
-    //  Translations  //
-    ////////////////////
     const { t } = useTranslation("playerPanel");
 
     const playerPanelTranslations = {
         test: t("PlayerPanel:test-message"),
     };
 
-    /////////////////////
-    // useMoralis Hook //
-    /////////////////////
     const { isWeb3Enabled, chainId: chainIdHex } = useMoralis();
     const chainId = parseInt(chainIdHex);
 

@@ -4,9 +4,6 @@ import { useMoralis } from "react-moralis";
 import Head from "next/head";
 import PlayGame from "../components/PlayGame";
 
-//////////////////////////////
-// Server Side Translations //
-//////////////////////////////
 export async function getStaticProps({ locale }) {
     return {
         props: {
@@ -16,9 +13,6 @@ export async function getStaticProps({ locale }) {
 }
 
 export default function playGame({ connectorT, supportedChainIDs }) {
-    ////////////////////
-    //  Translations  //
-    ////////////////////
     const { t } = useTranslation("playGame");
 
     const playGameTranslations = {
@@ -28,9 +22,6 @@ export default function playGame({ connectorT, supportedChainIDs }) {
         snakeBalance: t("playGame:GameFeeInfo.snake-balance"),
     };
 
-    /////////////////////
-    // useMoralis Hook //
-    /////////////////////
     const { isWeb3Enabled, chainId: chainIdHex } = useMoralis();
     const chainId = parseInt(chainIdHex);
 

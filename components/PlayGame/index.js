@@ -7,30 +7,17 @@ import LoadingSpinner from "../_Helpers_/LoadingSpinner";
 import GameFeeInfo from "./GameFeeInfo";
 
 export default function PlayGame({ playGameT }) {
-    /////////////////////
-    // useMoralis Hook //
-    /////////////////////
     const { isWeb3Enabled, chainId: chainIdHex, account } = useMoralis();
 
-    /////////////////////////////
-    // Read contract addresses //
-    /////////////////////////////
     const chainId = parseInt(chainIdHex);
     const snakeGameAddress = chainId in contractAddresses ? contractAddresses[chainId]["SnakeGame"][0] : null;
     const snakeTokenAddress = chainId in contractAddresses ? contractAddresses[chainId]["SnakeToken"][0] : null;
 
-    ///////////////////
-    //  State Hooks  //
-    ///////////////////
     const [showLoadingSpinner, setShowLoadingSpinner] = useState(false);
     const [gameStarted, setGameStarted] = useState(false);
     const [gameFee, setGameFee] = useState(0);
     const [snakeBalance, setSnakeBalance] = useState(0);
     const [snakeBalanceTooLow, setSnakeBalanceTooLow] = useState(false);
-
-    /////////////////////
-    // useEffect Hooks //
-    /////////////////////
 
     // UpdateUI
     useEffect(() => {
@@ -39,14 +26,7 @@ export default function PlayGame({ playGameT }) {
         }
     }, [isWeb3Enabled, chainId]);
 
-    /////////////////////
-    //  Notifications  //
-    /////////////////////
     const dispatch = useNotification();
-
-    ////////////////////////
-    // Contract Functions //
-    ////////////////////////
 
     // Contract function: getPlayerDataFunction
     const { runContractFunction: getPlayerDataFunction } = useWeb3Contract({
@@ -108,21 +88,14 @@ export default function PlayGame({ playGameT }) {
         params: {},
     });
 
-    //////////////////
-    // UI Functions //
-    //////////////////
-
     // UpdateUI function
     async function updateUI() {
         // Game fee calculation
         const gameFeeFromCall = await gameFeeCalculationFunction(account);
-        // console.log("Game fee from call:", gameFeeFromCall.toString());
         setGameFee(gameFeeFromCall.toString());
         // SNAKE balance
         const snakeBalanceFromCall = await snakeBalanceFunction(account);
-        // console.log(`SNAKE balance from call: ${snakeBalanceFromCall.toString()}`);
         setSnakeBalance(snakeBalanceFromCall.toString());
-        //
         console.log("updateUI");
     }
 
@@ -134,25 +107,19 @@ export default function PlayGame({ playGameT }) {
     const handleStartGameButton = async () => {
         // Run contract function: getPlayerDataFunction - check game started flag
         const gameStartedFlag = (await getPlayerDataFunction(account))[1];
-        // console.log("gameStartedFlag:", gameStartedFlag);
         if (gameStartedFlag == false) {
             // Run contract function: balanceOf - check SNAKE balance
             const snakeBalanceFromCall = await snakeBalanceFunction(account);
             setSnakeBalance(Number(snakeBalanceFromCall.toString()));
-            // console.log("snakeBalance from call:", snakeBalanceFromCall.toString());
-            // console.log("snakeBalance from state:", snakeBalance.toString());
             // Run contract function: gameFeeCalculationFunction - calculate game fee
             const gameFeeFromCall = await gameFeeCalculationFunction(account);
             setGameFee(Number(gameFeeFromCall.toString()));
-            // console.log("gameFee from call:", gameFeeFromCall.toString());
-            // console.log("gameFee from state:", gameFee.toString());
             if (Number(snakeBalanceFromCall.toString()) >= Number(gameFeeFromCall.toString())) {
                 setSnakeBalanceTooLow(false);
                 // Turn on loading spinner animation
                 setShowLoadingSpinner(true);
                 // Run contract function: snakeTokenAllowanceFunction - check SNAKE spend allowance
                 const snakeAllowanceFromCall = await snakeTokenAllowanceFunction();
-                // console.log("snakeAllowance:", snakeAllowanceFromCall.toString());
                 if (snakeAllowanceFromCall < gameFeeFromCall) {
                     handleSnakeTokenApproval();
                 } else {
@@ -163,8 +130,6 @@ export default function PlayGame({ playGameT }) {
                 setShowLoadingSpinner(false);
                 // Error: SNAKE balance too low!
                 setSnakeBalanceTooLow(true);
-                // console.log("SNAKE balance too low!");
-                // console.log("snakeBalanceTooLow:", snakeBalanceTooLow);
             }
             // };
         } else {

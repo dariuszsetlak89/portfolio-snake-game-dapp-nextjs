@@ -7,23 +7,14 @@ import SnakeNftCard from "./SnakeNftCard/index.js";
 import SuperPetNftCard from "./SuperPetNftCard/index.js";
 
 export default function Player() {
-    /////////////////////
-    // useMoralis Hook //
-    /////////////////////
     const { isWeb3Enabled, chainId: chainIdHex, account } = useMoralis();
 
-    /////////////////////////////
-    // Read contract addresses //
-    /////////////////////////////
     const chainId = parseInt(chainIdHex);
     const snakeGameAddress = chainId in contractAddresses ? contractAddresses[chainId]["SnakeGame"][0] : null;
     const snakeTokenAddress = chainId in contractAddresses ? contractAddresses[chainId]["SnakeToken"][0] : null;
     const snakeNftAddress = chainId in contractAddresses ? contractAddresses[chainId]["SnakeNft"][0] : null;
     const superPetNftAddress = chainId in contractAddresses ? contractAddresses[chainId]["SuperPetNft"][0] : null;
 
-    ///////////////////
-    //  State Hooks  //
-    ///////////////////
     const [snakeAirdropFlag, setSnakeAirdropFlag] = useState(false);
     const [gameStartedFlag, setGameStartedFlag] = useState(false);
     const [superPetNftClaimFlag, setSuperPetNftClaimFlag] = useState(false);
@@ -44,20 +35,12 @@ export default function Player() {
     const [snakeNftBalance, setSnakeNftBalance] = useState(0);
     const [superPetNftBalance, setSuperPetNftBalance] = useState(0);
 
-    /////////////////////
-    // useEffect Hooks //
-    /////////////////////
-
     // UpdateUI
     useEffect(() => {
         if (isWeb3Enabled && snakeGameAddress) {
             updateUI();
         }
     }, [isWeb3Enabled, chainId]);
-
-    ////////////////////////
-    // Contract Functions //
-    ////////////////////////
 
     // Contract function: getPlayerDataFunction
     const { runContractFunction: getPlayerDataFunction } = useWeb3Contract({

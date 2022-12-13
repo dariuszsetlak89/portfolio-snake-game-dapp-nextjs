@@ -8,9 +8,6 @@ import Head from "next/head";
 import Layout from "../components/Layout";
 import "../styles/globals.css";
 
-//////////////////////////////
-// Server Side Translations //
-//////////////////////////////
 export async function getStaticProps({ locale }) {
     return {
         props: {
@@ -20,9 +17,6 @@ export async function getStaticProps({ locale }) {
 }
 
 function SnakeGameDapp({ Component, pageProps }) {
-    ////////////////////
-    //  Translations  //
-    ////////////////////
     const { t } = useTranslation("common");
 
     const connectorTranslations = {
@@ -41,15 +35,7 @@ function SnakeGameDapp({ Component, pageProps }) {
         gamePanelButton: t("sideNavbar.game-panel-button"),
     };
 
-    //////////////////////
-    // Supported chains //
-    //////////////////////
-    const supportedChainIDs = ["31337", "5", "80001"];
-    // const supportedChains = [
-    //     { chainID: "31337", name: "Hardhat", currency: "HH ETH" },
-    //     { chainID: "5", name: "Goerli", currency: "Goerli ETH" },
-    //     { chainID: "80001", name: "Mumbai", currency: "Mumbai MATIC" },
-    // ];
+    const supportedChainIDs = ["31337", "5"];
 
     return (
         <MoralisProvider initializeOnMount={false}>

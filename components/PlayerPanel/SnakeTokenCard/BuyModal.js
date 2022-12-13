@@ -13,21 +13,11 @@ export default function BuyModal({
     nativeCurrencyName,
     onClose,
 }) {
-    /////////////////
-    // State Hooks //
-    /////////////////
     const [showLoadingSpinner, setShowLoadingSpinner] = useState(false);
     const [buyAmount, setBuyAmount] = useState(0);
     const [buyPrice, setBuyPrice] = useState(0);
 
-    /////////////////////
-    //  Notifications  //
-    /////////////////////
     const dispatch = useNotification();
-
-    ////////////////////////
-    // Contract Functions //
-    ////////////////////////
 
     // Contract function: buySnake
     const { runContractFunction: buySnake } = useWeb3Contract({
@@ -40,20 +30,14 @@ export default function BuyModal({
         },
     });
 
-    ///////////////////////
-    // Handler Functions //
-    ///////////////////////
-
     // Handle input field
     const handleInputField = async (event) => {
         // Buy amount
         const buyAmount = event.target.value;
         setBuyAmount(buyAmount);
-        // console.log("Buy amount:", buyAmount);
         // Buy price
         const buyPrice = (event.target.value * snakeExchangeRate).toString();
         setBuyPrice(buyPrice);
-        // console.log("Buy price:", buyPrice);
     };
 
     // Handle SNAKE airdrop function
@@ -77,13 +61,9 @@ export default function BuyModal({
             title: "SNAKE tokens bought",
             position: "bottomL",
         });
-        // Reset input field
         setBuyAmount("0");
-        // Turn off loading wheel animation
         setShowLoadingSpinner(false);
-        // UpdateUI
         updateUI();
-        // Close modal
         onClose();
     };
 

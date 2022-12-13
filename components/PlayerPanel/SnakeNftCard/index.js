@@ -1,10 +1,6 @@
 import RefreshButton from "../../_Helpers_/RefreshButton";
 
 export default function SnakeNftCard({ updateUI, scoreRequired, maxSnakeNfts, snakeNftMinted, snakeNftBalance }) {
-    //////////////////
-    // UI Functions //
-    //////////////////
-
     // Update card function
     const updateCard = async () => {
         await updateUI();

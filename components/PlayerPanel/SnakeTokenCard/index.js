@@ -15,33 +15,21 @@ export default function SnakeCard({
     snakeExchangeRate,
     chainId,
 }) {
-    ///////////////////
-    //  State Hooks  //
-    ///////////////////
     const [showAirdropModal, setShowAirdropModal] = useState(false);
     const hideAirdropModal = () => setShowAirdropModal(false);
     const [showBuyModal, setShowBuyModal] = useState(false);
     const hideBuyModal = () => setShowBuyModal(false);
     const [nativeCurrencyName, setNativeCurrencyName] = useState("");
 
-    //////////////////
-    // UI Functions //
-    //////////////////
-
     // Update card function
     const updateCard = async () => {
         await updateUI();
     };
 
-    ///////////////////////
-    // Handler Functions //
-    ///////////////////////
-
     // Handle SNAKE airdrop button click function
     const handleAirdropButtonClick = () => {
         // Show SNAKE airdrop modal
         snakeAirdropFlag == false ? setShowAirdropModal(true) : "";
-        // console.log("Show SNAKE airdrop modal!");
     };
 
     // Handle buy button click function
@@ -50,7 +38,6 @@ export default function SnakeCard({
         setNativeCurrencyName(readNativeCurrencyName(chainId));
         // Show buy SNAKE modal
         setShowBuyModal(true);
-        // console.log("Show buy SNAKE modal!");
     };
 
     return (

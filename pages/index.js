@@ -5,9 +5,6 @@ import { useRouterScroll } from "@moxy/next-router-scroll";
 import Head from "next/head";
 import Home from "../components/Home";
 
-//////////////////////////////
-// Server Side Translations //
-//////////////////////////////
 export async function getStaticProps({ locale }) {
     return {
         props: {
@@ -17,23 +14,14 @@ export async function getStaticProps({ locale }) {
 }
 
 export default function HomePage() {
-    ////////////////////
-    //  Translations  //
-    ////////////////////
     const { t } = useTranslation("home");
 
     const homeTranslations = {
         howToPlayButton: t("home:howToPlay-button"),
     };
 
-    ///////////////////
-    // Scroll update //
-    ///////////////////
     const { updateScroll } = useRouterScroll();
 
-    ////////////////////
-    // useEffect Hook //
-    ////////////////////
     useEffect(() => {
         updateScroll();
     }, []);
